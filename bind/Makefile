@@ -17,6 +17,12 @@ cli:
 	$(COMPOSE) exec $(SERVICE) bash
 
 test:
+	$(MAKE) up
+	sleep 10
+	$(MAKE) dig
+	$(MAKE) down
+
+dig:
 	$(COMPOSE) exec $(SERVICE) dig @127.0.0.1 . DNSKEY +dnssec
 	
 reconfig: config
