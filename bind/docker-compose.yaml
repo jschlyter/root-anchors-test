@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  bind:
+    image: bind9
+    build: .
+    working_dir: /tmp
